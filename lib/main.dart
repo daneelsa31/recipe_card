@@ -102,6 +102,20 @@ class ProfileScreen extends StatelessWidget {
                           ],
                         ),
                       ),
+
+                      // 4. Ingredients Heading
+                      const Padding(
+                        padding: EdgeInsets.fromLTRB(28.0, 30.0, 28.0, 15.0),
+                        child: Text(
+                          'Ingredients',
+                          style: TextStyle(
+                            fontSize: 24,
+                            fontWeight: FontWeight.w800,
+                            color: Color(0xFF1D2D35),
+                          ),
+                        ),
+                      ),
+                      
                     ],
                   ),
                   // The FloatingHeart will go here in a future commit!
