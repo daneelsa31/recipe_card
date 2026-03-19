@@ -23,7 +23,6 @@ class ProfileScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     // The Scaffold is our "Canvas"
     return Scaffold(
-      backgroundColor: const Color(0xFFDDE5E9), // The grey-blue background
       
     );
   }
