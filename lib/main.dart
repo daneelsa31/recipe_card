@@ -105,7 +105,7 @@ class ProfileScreen extends StatelessWidget {
 
                       // 4. Ingredients Heading
                       const Padding(
-                        padding: EdgeInsets.fromLTRB(28.0, 30.0, 28.0, 15.0),
+                        padding: EdgeInsets.fromLTRB(28.0, 20.0, 28.0, 15.0),
                         child: Text(
                           'Ingredients',
                           style: TextStyle(
@@ -115,6 +115,21 @@ class ProfileScreen extends StatelessWidget {
                           ),
                         ),
                       ),
+
+                      // 5. Bulleted List
+                      const Padding(
+                        padding: EdgeInsets.symmetric(horizontal: 28.0),
+                        child: Column(
+                          children: [
+                            _IngredientItem(text: "1 whole chicken"),
+                            _IngredientItem(text: "2 lemons, sliced"),
+                            _IngredientItem(text: "4 cloves garlic, crushed"),
+                            _IngredientItem(text: "3 sprigs fresh rosemary"),
+                            _IngredientItem(text: "2 tbsp olive oil"),
+                          ],
+                        ),
+                      ),
+
                       
                     ],
                   ),
@@ -163,6 +178,38 @@ class _StatItem extends StatelessWidget {
           ),
         ),
       ],
+    );
+  }
+}
+
+class _IngredientItem extends StatelessWidget {
+  final String text;
+  const _IngredientItem({required this.text});
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 12.0),
+      child: Row(
+        crossAxisAlignment:
+            CrossAxisAlignment.start, // Aligns bullet to the top line
+        children: [
+          const Padding(
+            padding: EdgeInsets.only(top: 8.0, right: 12.0),
+            child: CircleAvatar(radius: 3, backgroundColor: Color(0xFF1D2D35)),
+          ),
+          Expanded(
+            child: Text(
+              text,
+              style: const TextStyle(
+                fontSize: 17,
+                color: Color(0xFF1D2D35),
+                fontWeight: FontWeight.w500,
+              ),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
