@@ -126,9 +126,10 @@ class ProfileScreen extends StatelessWidget {
                           ],
                         ),
                       ),
+                      const SizedBox(height: 25),
                     ],
                   ),
-                  
+
                   // 6. The Floating Heart Button
                   Positioned(
                     bottom: 20, // Distance from the bottom of the card
