@@ -44,6 +44,27 @@ class ProfileScreen extends StatelessWidget {
                   ),
                 ],
               ),
+              // ... inside your Container ...
+              child: Stack(
+                children: [
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      // 1. The Image with rounded top corners
+                      ClipRRect(
+                        borderRadius: const BorderRadius.vertical(top: Radius.circular(30)),
+                        child: Image.network(
+                          'https://images.unsplash.com/photo-1598103442097-8b74394b95c6?q=80&w=1000&auto=format&fit=crop',
+                          height: 250,
+                          width: double.infinity,
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                    ],
+                  ),
+                  // I used stack for the floating heart button
+                ],
+              ),
             ),
           ),
         ),
