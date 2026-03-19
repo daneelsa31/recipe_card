@@ -78,7 +78,30 @@ class ProfileScreen extends StatelessWidget {
                           ),
                         ),
                       ),
-                      
+
+                      // 3. The Unified Stats Section
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 28.0),
+                        child: Wrap(
+                          spacing: 20, // Gap between items side-by-side
+                          runSpacing:
+                              16, // THIS adds the gap between the top and bottom rows!
+                          children: const [
+                            _StatItem(
+                              icon: Icons.access_time_filled,
+                              text: "Prep: 15 min",
+                            ),
+                            _StatItem(
+                              icon: Icons.kitchen,
+                              text: "Cook: 45 min",
+                            ),
+                            _StatItem(
+                              icon: Icons.stars,
+                              text: "Difficulty: Easy",
+                            ),
+                          ],
+                        ),
+                      ),
                     ],
                   ),
                   // The FloatingHeart will go here in a future commit!
@@ -88,6 +111,44 @@ class ProfileScreen extends StatelessWidget {
           ),
         ),
       ),
+    );
+  }
+}
+
+class _StatItem extends StatelessWidget {
+  final IconData icon;
+  final String text;
+
+  const _StatItem({required this.icon, required this.text});
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        // The Blue Icon Box
+        Container(
+          padding: const EdgeInsets.all(7), // Spacing inside the blue box
+          decoration: BoxDecoration(
+            color: const Color(
+              0xFF6A8CAF,
+            ), // The slate-blue color from your image
+            borderRadius: BorderRadius.circular(
+              8,
+            ), // Rounded corners for the icon box
+          ),
+          child: Icon(icon, color: Colors.white, size: 20),
+        ),
+        const SizedBox(width: 12), // Gap between icon and text
+        Text(
+          text,
+          style: const TextStyle(
+            fontSize: 16,
+            color: Color(0xFF1D2D35),
+            fontWeight: FontWeight.w700,
+          ),
+        ),
+      ],
     );
   }
 }
