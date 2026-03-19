@@ -41,8 +41,7 @@ class ProfileScreen extends StatelessWidget {
                   ),
                 ],
               ),
-              // ... inside your Container ...
-              // ... inside your Container ...
+              
               child: Stack(
                 children: [
                   Column(
@@ -82,7 +81,7 @@ class ProfileScreen extends StatelessWidget {
                         child: Wrap(
                           spacing: 20, // Gap between items side-by-side
                           runSpacing:
-                              16, // THIS adds the gap between the top and bottom rows!
+                              16, // adds the gap between the top and bottom rows
                           children: const [
                             _StatItem(
                               icon: Icons.access_time_filled,
@@ -185,7 +184,7 @@ class _StatItem extends StatelessWidget {
           decoration: BoxDecoration(
             color: const Color(
               0xFF6A8CAF,
-            ), // The slate-blue color from your image
+            ), // The slate-blue color
             borderRadius: BorderRadius.circular(
               8,
             ), // Rounded corners for the icon box
