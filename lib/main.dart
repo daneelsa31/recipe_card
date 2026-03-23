@@ -21,9 +21,8 @@ class ProfileScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // The Scaffold is our "Canvas"
     return Scaffold(
-      backgroundColor: const Color(0xFFDDE5E9), // The grey-blue background
+      backgroundColor: const Color(0xFFDDE5E9),
       body: Center(
         child: SingleChildScrollView(
           child: Padding(
@@ -31,36 +30,32 @@ class ProfileScreen extends StatelessWidget {
             child: Container(
               width: 400,
               decoration: BoxDecoration(
-                color: const Color(0xFFFAF9F6), // The off-white card color
+                color: const Color(0xFFFAF9F6),
                 borderRadius: BorderRadius.circular(30),
                 boxShadow: [
                   BoxShadow(
-                    color: Colors.black.withValues(alpha: 0.1),
-                    blurRadius: 20,
-                    offset: const Offset(0, 10),
+                    color: Colors.black.withValues(alpha: 0.12), // Slightly deeper
+                    blurRadius: 30, // Softer spread
+                    offset: const Offset(0, 15), // Higher lift
                   ),
                 ],
               ),
-              
               child: Stack(
                 children: [
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      // 1. The Image with rounded top corners
                       ClipRRect(
                         borderRadius: const BorderRadius.vertical(
                           top: Radius.circular(30),
                         ),
                         child: Image.network(
-                          'https://images.unsplash.com/photo-1598103442097-8b74394b95c6?q=80&w=1000&auto=format&fit=crop',
+                          'https://greendale.com/cdn/shop/articles/garlic-lemon-roast-chicken_eb6064d1-9979-42fd-a150-6ee9d548d7a3.jpg?v=1771521242&width=2000',
                           height: 250,
                           width: double.infinity,
                           fit: BoxFit.cover,
                         ),
                       ),
-
-                      // 2. The Title Section
                       const Padding(
                         padding: EdgeInsets.fromLTRB(28.0, 20.0, 28.0, 20.0),
                         child: Text(
@@ -74,32 +69,18 @@ class ProfileScreen extends StatelessWidget {
                           ),
                         ),
                       ),
-
-                      // 3. The Unified Stats Section
                       Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 28.0),
                         child: Wrap(
-                          spacing: 20, // Gap between items side-by-side
-                          runSpacing:
-                              16, // adds the gap between the top and bottom rows
+                          spacing: 20,
+                          runSpacing: 16,
                           children: const [
-                            _StatItem(
-                              icon: Icons.access_time_filled,
-                              text: "Prep: 15 min",
-                            ),
-                            _StatItem(
-                              icon: Icons.stars,
-                              text: "Difficulty: Easy",
-                            ),
-                            _StatItem(
-                              icon: Icons.kitchen,
-                              text: "Cook: 45 min",
-                            ),
+                            _StatItem(icon: Icons.access_time_filled, text: "Prep: 15 min"),
+                            _StatItem(icon: Icons.stars, text: "Difficulty: Easy"),
+                            _StatItem(icon: Icons.kitchen, text: "Cook: 45 min"),
                           ],
                         ),
                       ),
-
-                      // 4. Ingredients Heading
                       const Padding(
                         padding: EdgeInsets.fromLTRB(28.0, 20.0, 28.0, 15.0),
                         child: Text(
@@ -111,8 +92,6 @@ class ProfileScreen extends StatelessWidget {
                           ),
                         ),
                       ),
-
-                      // 5. Bulleted List
                       const Padding(
                         padding: EdgeInsets.symmetric(horizontal: 28.0),
                         child: Column(
@@ -125,14 +104,12 @@ class ProfileScreen extends StatelessWidget {
                           ],
                         ),
                       ),
-                      const SizedBox(height: 25),
+                      const SizedBox(height: 40), // Breathing room at bottom
                     ],
                   ),
-
-                  // 6. The Floating Heart Button
                   Positioned(
-                    bottom: 20, // Distance from the bottom of the card
-                    right: 20, // Distance from the right of the card
+                    bottom: 25,
+                    right: 25,
                     child: Container(
                       decoration: BoxDecoration(
                         color: Colors.white,
@@ -148,11 +125,11 @@ class ProfileScreen extends StatelessWidget {
                       child: IconButton(
                         icon: const Icon(
                           Icons.favorite,
-                          color: Color.fromARGB(255, 0, 0, 0),
+                          color: Colors.black,
                           size: 28,
                         ),
                         onPressed: () {
-                          print("Favorite tapped!");
+                          debugPrint("Favorite tapped!"); // Lint-friendly logging
                         },
                       ),
                     ),
